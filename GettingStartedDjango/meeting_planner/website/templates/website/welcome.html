@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<h1>Welcome to the Meeting Planner Website!</h1>
+    <p>
+        This is the demo of a basic meeting planner project.
+        You can also learn it from a <em>Tutorial</em>
+        at <a href="https://www.pluralsight.com">PluralSight</a>
+
+    </p>
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}<li>
+       <!-- <a href="/meetings/{{meeting.id}}">{{meeting.title}}</a>-->
+        <a href="{% url 'detail' meeting.id %}">{{meeting.title}}</a>
+    </li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'rooms' %}">Room List</a>
+{% endblock %}
